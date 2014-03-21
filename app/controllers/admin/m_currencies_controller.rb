@@ -1,5 +1,8 @@
 class Admin::MCurrenciesController < ApplicationController  
+  
   def index
-    @currencies = M::Currency.all
+    @search = M::Currency.search(params[:q])
+    @currencies = @search.result
   end
+  
 end

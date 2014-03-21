@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "4.0.2"
 gem "friendly_id", "~> 5.0.0"
+gem "ransack"
 
 group :development do
   gem "mysql2"

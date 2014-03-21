@@ -2,14 +2,28 @@
 <h1>Currency list</h1>
 
 <div class="span10 offset1">
+
+  <%= search_form_for [:admin, @search] do |f| %>
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, list: "browsers" %>
+    <datalist id="browsers">
+      <% M::Currency.all.each do |currency| %>
+        <option value="<%= currency.name %>"></option>
+        <_tags>
+      <% end %>
+    </datalist>
+    
+    <%= f.submit "Search" %>
+  <% end %>
+  
   <table class="table table-bordered">
 
     <thead>
       <tr>
-        <th>Currency ID</th>
-        <th>Currency Name</th>
-        <th>Currency Email</th>
-        <th>Currency Balance</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Balance</th>
       </tr>
     </thead>
     <tbody>
@@ -20,7 +34,7 @@
           <td><%= currency.code %></td>
           <td><%= currency.balance %></td>
         </tr>
-    <% end %>
+      <% end %>
     </tbody>
   </table>
 </div>
