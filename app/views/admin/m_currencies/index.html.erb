@@ -1,0 +1,26 @@
+<% provide(:title, 'Currency list') %>
+<h1>Currency list</h1>
+
+<div class="span10 offset1">
+  <table class="table table-bordered">
+
+    <thead>
+      <tr>
+        <th>Currency ID</th>
+        <th>Currency Name</th>
+        <th>Currency Email</th>
+        <th>Currency Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @currencies.each do |currency| %>
+        <tr>
+          <td><%= currency.id %></td>
+          <td><%= currency.name %></td>
+          <td><%= currency.code %></td>
+          <td><%= currency.balance %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
