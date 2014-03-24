@@ -37,4 +37,15 @@
       <% end %>
     </tbody>
   </table>
+  
+  <%= link_to "Export CSV", admin_m_currencies_path(format: "csv"), class: "btn btn-medium btn-primary" %>
+  <%= link_to "Import CSV", "#" %>
+
+  <h2>Import Currency</h2>
+  
+  <%= form_tag import_admin_m_currencies_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV", class: "btn btn-medium btn-primary" %>
+  <% end %>
+  
 </div>

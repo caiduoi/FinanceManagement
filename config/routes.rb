@@ -7,7 +7,9 @@ FinanceManagement::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   
   namespace :admin do
-    resources :m_currencies, only: [:index]
+    resources :m_currencies, only: [:index] do
+      collection { post :import }
+    end
     resources :m_category_types, only: [:index]
   end
   
