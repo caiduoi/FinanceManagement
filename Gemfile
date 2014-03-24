@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem "rails", "4.0.2"
 gem "friendly_id", "~> 5.0.0"
 gem "ransack"
+gem 'roo'
 
 group :development do
   gem "mysql2"
