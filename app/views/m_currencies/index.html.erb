@@ -1,0 +1,41 @@
+<% provide(:title, 'Currency list') %>
+<h1>Currency list</h1>
+
+<div class="span10 offset1">
+  
+  <%= search_form_for @search do |f| %>
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, list: "browsers" %>
+    <datalist id="browsers">
+      <% M::Currency.all.each do |currency| %>
+        <option value="<%= currency.name %>"></option>
+      <% end %>
+    </datalist>
+    
+    <%= f.submit "Search" %>
+  <% end %>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Rate</th>
+        <th>Update Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @currencies.each do |currency| %>
+        <tr>
+          <td><%= currency.id %></td>
+          <td><%= currency.name %></td>
+          <td><%= currency.code %></td>
+          <td><%= currency.rate %></td>
+          <td><%= currency.updated_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+</div>

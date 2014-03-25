@@ -1,5 +1,8 @@
 class Admin::MCurrenciesController < ApplicationController  
   
+  before_action :signed_in
+  before_action :admin
+  
   def new
     
   end
@@ -35,4 +38,14 @@ class Admin::MCurrenciesController < ApplicationController
     redirect_to root_url, notice: "Currency imported."
   end
   
+  def signed_in
+    redirect_to root_path unless signed_in?
+  end 
+    
+  def admin
+    redirect_to root_path unless admin?
+  end
+  
 end
+
+
